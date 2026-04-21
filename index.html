@@ -1,0 +1,87 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+    <script>
+    window.onload = function() {
+    var checkbox = document.getElementById('skipstartcb');
+    var isChecked = localStorage.getItem('checkboxState') === 'true';
+    checkbox.checked = isChecked;
+
+    checkbox.addEventListener('change', function() {
+        localStorage.setItem('checkboxState', this.checked);
+    });
+    if (isChecked) {
+        switchPage('homepg');
+    } 
+        var words = ['Comic Sans Enjoyer', 'Splatoon Addict', 'Lunar was here','Average Balls Enjoyer', 'Insert Splash Text Here', 'Sigma is the guy from Overwatch','waiting for the star wand to come back','includes AI'];
+        var randomWord = words[Math.floor(Math.random() * words.length)];
+        document.getElementById('splashtext').textContent = randomWord;
+    };
+    </script>
+</head>
+<div>
+<body>
+    <div id="startpg" class="active">
+        <div id="mainsplash"><p style="color:rgb(225, 255, 0);" id="splashtext">Splash text no workie</p></div>
+        <h1>RTXT25.Github.io</h1>
+        <button class="btnstart" onclick="switchPage('homepg');"></button><p></p>
+        <button class="btnsettings" onclick="switchPage('settingspg');"></button>
+    </div>
+    <div id="settingspg">
+        <br><br>
+        <h1 id="bigtxt">Setting</h1>
+        <input type="checkbox" id="skipstartcb" class="btn-settings">
+        <label id="bigtxt" for="skipstartcb">Skip Start Page</label><p>
+        <!-- <label for="toggle-hue">Toggle Hue Rotation</label> -->
+        <!-- <input type="checkbox" id="toggle-hue"><p></p> -->
+        <button class="btn-back" onclick="switchPage('homepg');"></button>
+    </div>
+    <div id="homepg">
+        <p id="bigtxt">home page</p>
+        <button class="btn-info" onclick="switchPage('info');"></button><p></p>
+        <button class="btn-project" onclick="switchPage('projects');"></button><p></p>
+        <button class="btn-mc" onclick="switchPage('minecraft');"></button><p></p>
+        <button class="btnsettings" onclick="switchPage('settingspg');"></button><p></p>
+        <button class="btn-credits" onclick="switchPage('credits');"></button>
+    </div>
+    <div id="info">
+        <h2 id="bigtxt">Info</h2>
+        <p id="bigtxt">I do the gaming and the code sometimes<p>
+        <p></p>
+        <p id="bigtxt">links:</p>
+        <p>
+        <button class="btn-yt" onclick="window.open('https://www.youtube.com/channel/UCd6XW-wNMjmUl2L-18Pjk5A', '_blank');"></button>
+        <button class="btn-git" onclick="window.open('https://github.com/RTXT25', '_blank');"></button>
+        <button class="btn-twitch" onclick="window.open('https://www.twitch.tv/rtxt25', '_blank');"></button>
+        </p><p>
+        <button class="btn-x" onclick="window.open('https://twitter.com/rtxt25', '_blank');"></button>
+        <button class="btn-reddit" onclick="window.open('https://www.reddit.com/user/Skool_human_boi', '_blank');"></button>
+        </p>
+        <button class="btn-back" onclick="switchPage('homepg');"></button>
+    </div>
+    <div id="minecraft">
+        <h2 id="bigtxt">minecraft</h2>
+        <p id="bigtxt">All my random minecraft stuffs</p>
+        <button class="btn-lean" onclick="window.open('https://rtxt25.github.io/Downloads/actualstuff/minecraft/mods/LEAN.jar', '_blank');"></button>
+        <p>a  1.17.1 mod that adds Lean to the game</p>
+        <button class="btn-rtxtpvp" onclick="window.open('https://rtxt25.github.io/Downloads/actualstuff/minecraft/texturepack/RTXT25DefaultPVP/RTXT25-Default-PVPv1.0.1.zip', '_blank');"></button>
+        <p>a 1.14 texture Edit for 1.8.9</p>
+        <button class="btn-back" onclick="switchPage('homepg');"></button>
+    </div>
+    <div id="projects">
+        <h2 id="bigtxt">Project</h2>
+        <p>i make thing sometimes</p>
+        <button class="btn-faiig" onclick="window.open('https://rtxt25.github.io/FAIIG/', '_blank');"></button>
+        <p></p><button class="btn-back" onclick="switchPage('homepg');"></button>
+    </div>
+    <div id="credits">
+        <h2 id="bigtxt">Credits</h2>
+        <p id="bigtxt"></p>
+        <p id="bigtxt">AI and me and random stuff from google</p>
+        <p id="bigtxt"></p>
+        <button class="btn-back" onclick="switchPage('homepg');"></button>
+    </div>
+</body>
+</div>
+</html>
