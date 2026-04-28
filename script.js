@@ -27,7 +27,9 @@ window.onload = () => {
   }
 
   const skip = localStorage.getItem("skip") === "true";
-  if (skip) switchPage("homepg");
+
+  // FIX: now correctly matches your merged hub id
+  if (skip) switchPage("hub");
 };
 
 // ================= SETTINGS =================
@@ -40,17 +42,22 @@ document.addEventListener("change", (e) => {
 
 // ================= CLICK SOUND =================
 
-const clickSound = new Audio("https://www.myinstants.com/media/sounds/minecraft-click.mp3");
+const clickSound = new Audio(
+  "https://www.myinstants.com/media/sounds/minecraft-click.mp3"
+);
+
 clickSound.volume = 0.4;
 
-// fix autoplay restrictions by only playing after first interaction
+// unlock audio only after first user interaction (browser requirement)
 let soundUnlocked = false;
 
-function unlockSound() {
-  soundUnlocked = true;
-}
-
-document.addEventListener("click", unlockSound, { once: true });
+document.addEventListener(
+  "click",
+  () => {
+    soundUnlocked = true;
+  },
+  { once: true }
+);
 
 function playClick() {
   if (!soundUnlocked) return;
