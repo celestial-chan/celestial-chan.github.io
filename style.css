@@ -1,19 +1,19 @@
+
 /* =========================
    BASE
 ========================= */
 
 body {
-    background: linear-gradient(135deg, #f6f0ff, #efe4ff, #f8f2ff);
-    font-family: "Trebuchet MS", sans-serif;
-    color: #2a1f3d;
     margin: 0;
     padding: 0;
-    animation: fadeInPage 1s ease-out;
+    font-family: "Trebuchet MS", sans-serif;
+    background: linear-gradient(135deg, #f6f0ff, #efe4ff, #f8f2ff);
+    color: #2a1f3d;
     overflow-x: hidden;
 }
 
 /* =========================
-   PURPLE AMBIENT GLOW
+   PURPLE AERO GLOW
 ========================= */
 
 body::before {
@@ -41,265 +41,100 @@ body::after {
 }
 
 /* =========================
-   GLASS LAYOUT
+   SPLASH LAYOUT
 ========================= */
 
-header,
-nav,
-main,
-footer {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background: rgba(250, 245, 255, 0.65);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(180, 140, 255, 0.25);
-    border-radius: 14px;
-    margin-top: 15px;
-    box-shadow:
-        0 8px 30px rgba(170, 120, 255, 0.25),
-        inset 0 0 18px rgba(255, 255, 255, 0.4);
-}
-
-/* =========================
-   MAIN LAYOUT
-========================= */
-
-main {
+body {
     display: flex;
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
 }
 
 /* =========================
-   HEADER
+   TITLE
 ========================= */
 
-h1 {
-    font-weight: normal;
-    font-size: 2em;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #c7a6ff;
-    padding-bottom: 10px;
-    color: #4b2a7a;
-    text-shadow: 0 0 10px rgba(190,120,255,0.5);
+.title {
+    font-size: 3rem;
+    color: #6d4aa6;
+    text-shadow: 0 0 20px rgba(190,120,255,0.6);
+    margin-bottom: 10px;
+    animation: floatIn 1s ease-out;
 }
 
 /* =========================
-   NAVIGATION
+   SUBTITLE
 ========================= */
 
-nav ul {
-    list-style: none;
-    padding: 0;
+.subtitle {
+    opacity: 0.7;
+    margin-bottom: 30px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* =========================
+   MENU CARDS
+========================= */
+
+.menu {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-nav li {
-    display: inline;
-}
-
-nav a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #b388ff, #a78bfa);
-    box-shadow: 0 4px 15px rgba(170, 120, 255, 0.35);
-    transition: all 0.2s ease;
-}
-
-nav a:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(135deg, #9b6dff, #7c5cff);
-    box-shadow: 0 8px 25px rgba(170, 120, 255, 0.5);
-}
-
-/* =========================
-   CONTENT
-========================= */
-
-article {
-    flex: 3;
-}
-
-aside {
-    flex: 1;
-    background: linear-gradient(
-        145deg,
-        rgba(245, 235, 255, 0.6),
-        rgba(240, 230, 255, 0.4)
-    );
+.card {
+    width: 180px;
     padding: 15px;
-    border-radius: 12px;
-    border: 1px solid rgba(180, 140, 255, 0.2);
-    box-shadow: 0 4px 20px rgba(170, 120, 255, 0.2);
-}
-
-/* =========================
-   TYPOGRAPHY
-========================= */
-
-h2 {
-    color: #6d4aa6;
-    font-weight: normal;
-    margin-top: 30px;
-    text-shadow: 0 0 6px rgba(190,120,255,0.25);
-}
-
-h3 {
-    color: #5a3b8c;
-    font-weight: normal;
-}
-
-p,
-li {
-    line-height: 1.8;
-    font-size: 1em;
-    color: #3a2a52;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-/* =========================
-   LINKS
-========================= */
-
-a {
-    color: #8b5cf6;
-    text-decoration: none;
-    display: inline-block;
+    border-radius: 14px;
+    background: rgba(250, 245, 255, 0.7);
+    border: 1px solid rgba(180, 140, 255, 0.3);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 6px 20px rgba(170,120,255,0.2);
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
-a:hover {
-    color: #a78bfa;
-    transform: scale(1.08);
-    text-shadow: 0 0 5px rgba(170,120,255,0.4);
+/* hover effect */
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(170,120,255,0.35);
 }
 
-/* =========================
-   MEDIA
-========================= */
-
-img {
-    border-radius: 12px;
-    margin: 10px 0;
-    max-width: 100%;
-    box-shadow: 0 6px 20px rgba(170, 120, 255, 0.25);
-}
-
-video {
-    display: block;
-    margin: 20px 0;
-    border-radius: 12px;
-    max-width: 100%;
-    box-shadow: 0 6px 25px rgba(170, 120, 255, 0.3);
-}
-
-/* =========================
-   TABLES
-========================= */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background: rgba(250, 245, 255, 0.6);
-}
-
-th,
-td {
-    border: 1px solid rgba(180, 140, 255, 0.25);
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background: linear-gradient(135deg, #e9d5ff, #e6dcff);
+/* card text */
+.card h3 {
+    margin: 0;
     color: #4b2a7a;
 }
 
-/* =========================
-   FORMS
-========================= */
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input,
-textarea {
-    padding: 8px;
-    border: 1px solid rgba(180, 140, 255, 0.35);
-    border-radius: 8px;
-    font-family: inherit;
-    background: rgba(255, 255, 255, 0.75);
-}
-
-input[type="submit"] {
-    background: linear-gradient(135deg, #b388ff, #7c5cff);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    padding: 10px;
-    transition: all 0.2s ease;
-    border-radius: 8px;
-}
-
-input[type="submit"]:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(170, 120, 255, 0.45);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid rgba(180, 140, 255, 0.25);
-    color: #5a3b8c;
+.card p {
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 /* =========================
    ANIMATIONS
 ========================= */
 
-@keyframes fadeInPage {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* =========================
-   LAYOUT HELPERS
-========================= */
-
-.video-row {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.video-row section {
-    flex: 1;
-    min-width: 250px;
-}
-
-#tbRoutine {
-    width: 100%;
 }
