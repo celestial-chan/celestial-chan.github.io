@@ -1,91 +1,87 @@
-
-/* ================= BASE ================= */
-
 body {
   margin: 0;
-  font-family: Trebuchet MS, sans-serif;
-  background: linear-gradient(135deg, #f6f0ff, #efe4ff, #f8f2ff);
+  font-family: "Trebuchet MS", sans-serif;
+  background: radial-gradient(circle at top, #f6f0ff, #e8ddff, #f3ecff);
+  overflow: hidden;
   color: #2a1f3d;
-  overflow-x: hidden;
 }
 
-/* ================= GLOW BACKGROUND ================= */
-
-.bg-glow {
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  top: -100px;
-  left: -100px;
-  background: radial-gradient(circle, rgba(190,120,255,0.4), transparent 70%);
-  filter: blur(60px);
-  z-index: -1;
-}
-
-/* ================= PAGE SYSTEM ================= */
-
+/* ===== GLOBAL GLASS UI ===== */
 .page {
   display: none;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 60px 20px;
 }
 
 .page.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ================= SPLASH ================= */
-
-.splash-container {
-  padding-top: 100px;
+/* ===== BUBBLY GLASS CONTAINER ===== */
+.splash-container,
+.panel {
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(180,140,255,0.3);
+  box-shadow: 0 10px 40px rgba(170,120,255,0.25);
 }
 
+/* ===== TITLE ===== */
 .title {
   font-size: 3rem;
   color: #6d4aa6;
-  text-shadow: 0 0 20px rgba(180,120,255,0.6);
+  text-shadow: 0 0 25px rgba(180,120,255,0.6);
 }
 
+/* ===== SUBTITLE ===== */
 .subtitle {
   opacity: 0.7;
-  margin-bottom: 30px;
-  font-style: italic;
+  margin-bottom: 25px;
 }
 
-/* ================= MENU CARDS ================= */
-
+/* ===== MENU (BUBBLY ORBS) ===== */
 .menu {
   display: flex;
   gap: 20px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* BIG CHANGE: ORB STYLE */
 .card {
-  width: 180px;
-  padding: 15px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(180,140,255,0.3);
-  backdrop-filter: blur(12px);
+  width: 170px;
+  padding: 20px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, #ffffff, #e9ddff);
+  border: 1px solid rgba(180,140,255,0.4);
+  box-shadow: 0 8px 25px rgba(170,120,255,0.25);
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px) scale(1.05);
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 12px 35px rgba(170,120,255,0.4);
 }
 
-/* ================= BUTTONS ================= */
-
+/* ===== BUTTONS (MATCH STYLE) ===== */
 button {
   margin: 6px;
-  padding: 10px 15px;
-  border-radius: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #b388ff, #7c5cff);
+
+  background: linear-gradient(135deg, #c7a6ff, #7c5cff);
   color: white;
+
+  box-shadow: 0 6px 20px rgba(160,120,255,0.3);
   transition: 0.2s;
 }
 
@@ -93,13 +89,14 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* ================= OPTIONAL FADE ================= */
-
-.page {
-  animation: fade 0.4s ease;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ===== BACKGROUND GLOW ===== */
+.bg-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(190,120,255,0.4), transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
 }
