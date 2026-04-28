@@ -1,33 +1,37 @@
-// ================= PAGE SWITCH =================
-function switchPage(pageId) {
-  document.querySelectorAll('.page').forEach(p => {
-    p.classList.remove('active');
-  });
-
-  const target = document.getElementById(pageId);
-  if (target) target.classList.add('active');
-}
-
-// ================= SPLASH TEXT =================
+// ================= FAKE LOADING TEXT =================
 window.onload = () => {
   const words = [
+    "loading world...",
     "old skyblock gamer",
-    "vibe coder (allegedly)",
-    "potential man",
-    "out of splash text ideas",
-    "please help",
     "frutiger aero core",
+    "vibe coding (allegedly)",
     "2000s UI enjoyer"
   ];
 
   const el = document.getElementById("splashtext");
-  if (el) {
+
+  const skip = localStorage.getItem("skip") === "true";
+
+  if (el && !skip) {
     el.textContent = words[Math.floor(Math.random() * words.length)];
   }
 
-  const skip = localStorage.getItem("skip") === "true";
-  if (skip) switchPage("hub"); // IMPORTANT FIX
+  if (skip && el) {
+    el.textContent = "lyra hub ready.";
+  }
 };
+
+// ================= SECTION SWITCH =================
+function go(page) {
+  const sections = document.querySelectorAll(".section");
+
+  sections.forEach(s => s.classList.add("hidden"));
+
+  if (page === "home") return;
+
+  const target = document.getElementById(page);
+  if (target) target.classList.remove("hidden");
+}
 
 // ================= SETTINGS =================
 document.addEventListener("change", (e) => {
@@ -35,19 +39,3 @@ document.addEventListener("change", (e) => {
     localStorage.setItem("skip", e.target.checked);
   }
 });
-
-// ================= CLICK SOUND =================
-const clickSound = new Audio("https://www.myinstants.com/media/sounds/minecraft-click.mp3");
-clickSound.volume = 0.4;
-
-let soundUnlocked = false;
-
-document.addEventListener("click", () => {
-  soundUnlocked = true;
-}, { once: true });
-
-function playClick() {
-  if (!soundUnlocked) return;
-  clickSound.currentTime = 0;
-  clickSound.play().catch(() => {});
-}
