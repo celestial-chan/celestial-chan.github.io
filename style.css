@@ -1,3 +1,4 @@
+
 /* ================= BASE ================= */
 
 body {
@@ -8,31 +9,20 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= GLOW ================= */
+/* ================= GLOW BACKGROUND ================= */
 
-body::before,
-body::after {
-  content: "";
+.bg-glow {
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(190,120,255,0.4), transparent 70%);
   filter: blur(60px);
   z-index: -1;
 }
 
-body::before {
-  top: -100px;
-  left: -100px;
-  background: rgba(190,120,255,0.4);
-}
-
-body::after {
-  bottom: -100px;
-  right: -100px;
-  background: rgba(170,130,255,0.3);
-}
-
-/* ================= PAGES ================= */
+/* ================= PAGE SYSTEM ================= */
 
 .page {
   display: none;
@@ -46,6 +36,10 @@ body::after {
 
 /* ================= SPLASH ================= */
 
+.splash-container {
+  padding-top: 100px;
+}
+
 .title {
   font-size: 3rem;
   color: #6d4aa6;
@@ -54,6 +48,8 @@ body::after {
 
 .subtitle {
   opacity: 0.7;
+  margin-bottom: 30px;
+  font-style: italic;
 }
 
 /* ================= MENU CARDS ================= */
@@ -62,7 +58,6 @@ body::after {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-top: 40px;
   flex-wrap: wrap;
 }
 
@@ -78,13 +73,13 @@ body::after {
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
 }
 
 /* ================= BUTTONS ================= */
 
 button {
-  margin: 5px;
+  margin: 6px;
   padding: 10px 15px;
   border-radius: 10px;
   border: none;
@@ -96,4 +91,15 @@ button {
 
 button:hover {
   transform: scale(1.05);
+}
+
+/* ================= OPTIONAL FADE ================= */
+
+.page {
+  animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
