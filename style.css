@@ -1,140 +1,99 @@
-
-/* =========================
-   BASE
-========================= */
+/* ================= BASE ================= */
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Trebuchet MS", sans-serif;
-    background: linear-gradient(135deg, #f6f0ff, #efe4ff, #f8f2ff);
-    color: #2a1f3d;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Trebuchet MS, sans-serif;
+  background: linear-gradient(135deg, #f6f0ff, #efe4ff, #f8f2ff);
+  color: #2a1f3d;
+  overflow-x: hidden;
 }
 
-/* =========================
-   PURPLE AERO GLOW
-========================= */
+/* ================= GLOW ================= */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  filter: blur(60px);
+  z-index: -1;
+}
 
 body::before {
-    content: "";
-    position: fixed;
-    top: -120px;
-    left: -120px;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(190,120,255,0.4), transparent 70%);
-    filter: blur(50px);
-    z-index: -1;
+  top: -100px;
+  left: -100px;
+  background: rgba(190,120,255,0.4);
 }
 
 body::after {
-    content: "";
-    position: fixed;
-    bottom: -120px;
-    right: -120px;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(170,130,255,0.3), transparent 70%);
-    filter: blur(50px);
-    z-index: -1;
+  bottom: -100px;
+  right: -100px;
+  background: rgba(170,130,255,0.3);
 }
 
-/* =========================
-   SPLASH LAYOUT
-========================= */
+/* ================= PAGES ================= */
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    text-align: center;
+.page {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
 }
 
-/* =========================
-   TITLE
-========================= */
+.page.active {
+  display: block;
+}
+
+/* ================= SPLASH ================= */
 
 .title {
-    font-size: 3rem;
-    color: #6d4aa6;
-    text-shadow: 0 0 20px rgba(190,120,255,0.6);
-    margin-bottom: 10px;
-    animation: floatIn 1s ease-out;
+  font-size: 3rem;
+  color: #6d4aa6;
+  text-shadow: 0 0 20px rgba(180,120,255,0.6);
 }
-
-/* =========================
-   SUBTITLE
-========================= */
 
 .subtitle {
-    opacity: 0.7;
-    margin-bottom: 30px;
-    animation: fadeIn 1.2s ease-out;
+  opacity: 0.7;
 }
 
-/* =========================
-   MENU CARDS
-========================= */
+/* ================= MENU CARDS ================= */
 
 .menu {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .card {
-    width: 180px;
-    padding: 15px;
-    border-radius: 14px;
-    background: rgba(250, 245, 255, 0.7);
-    border: 1px solid rgba(180, 140, 255, 0.3);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 6px 20px rgba(170,120,255,0.2);
-    cursor: pointer;
-    transition: all 0.2s ease;
+  width: 180px;
+  padding: 15px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(180,140,255,0.3);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-/* hover effect */
 .card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 10px 30px rgba(170,120,255,0.35);
+  transform: translateY(-5px);
 }
 
-/* card text */
-.card h3 {
-    margin: 0;
-    color: #4b2a7a;
+/* ================= BUTTONS ================= */
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #b388ff, #7c5cff);
+  color: white;
+  transition: 0.2s;
 }
 
-.card p {
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes floatIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+button:hover {
+  transform: scale(1.05);
 }
