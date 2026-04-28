@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>lyra hub</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -11,26 +12,27 @@
 
 <!-- ================= SPLASH ================= -->
 <div id="startpg" class="page active">
-  <div class="splash">
+
+  <div class="splash-container">
 
     <h1 class="title">lyra hub</h1>
-    <p id="splashtext" class="subtitle">booting personality...</p>
+    <p id="splashtext" class="subtitle">loading world...</p>
 
     <div class="menu">
 
-      <div class="card" onclick="switchPage('homepg')">
-        <h3>enter world</h3>
-        <p>main profile</p>
+      <div class="card" onclick="playClick(); switchPage('homepg')">
+        <h3>singleplayer</h3>
+        <p>enter hub</p>
       </div>
 
-      <div class="card" onclick="switchPage('info')">
-        <h3>about me</h3>
-        <p>the player behind the screen</p>
+      <div class="card" onclick="playClick(); switchPage('info')">
+        <h3>profile</h3>
+        <p>about me</p>
       </div>
 
-      <div class="card" onclick="switchPage('minecraft')">
+      <div class="card" onclick="playClick(); switchPage('minecraft')">
         <h3>skyblock</h3>
-        <p>grinding addiction stats</p>
+        <p>grind stats</p>
       </div>
 
     </div>
@@ -42,63 +44,38 @@
 <div id="homepg" class="page">
   <h1>home</h1>
 
-  <p>welcome to my little corner of the internet</p>
-  <p>i code, i game, i procrastinate, repeat.</p>
-
-  <button onclick="switchPage('info')">about me</button>
-  <button onclick="switchPage('minecraft')">skyblock stuff</button>
-  <button onclick="switchPage('projects')">projects</button>
-  <button onclick="switchPage('settingspg')">settings</button>
+  <button onclick="playClick(); switchPage('info')">about me</button>
+  <button onclick="playClick(); switchPage('minecraft')">minecraft</button>
+  <button onclick="playClick(); switchPage('projects')">projects</button>
+  <button onclick="playClick(); switchPage('settingspg')">settings</button>
 </div>
 
 <!-- ================= INFO ================= -->
 <div id="info" class="page">
   <h1>about me</h1>
 
-  <p>
-    just a random guy on the internet who codes stuff when bored and plays too much minecraft.
-  </p>
+  <p>just a coder + gamer who builds random things at 2am</p>
+  <p>mostly minecraft, websites, and chaos</p>
 
-  <p>
-    sometimes I build things. sometimes I break them. usually both.
-  </p>
-
-  <p>
-    mostly here for vibes, learning, and random projects that go nowhere 👍
-  </p>
-
-  <button onclick="window.open('https://github.com/', '_blank')">github</button>
-  <button onclick="switchPage('homepg')">back</button>
+  <button onclick="playClick(); switchPage('homepg')">back</button>
 </div>
 
 <!-- ================= MINECRAFT ================= -->
 <div id="minecraft" class="page">
   <h1>minecraft</h1>
 
-  <p>skyblock / mods / texture packs / random grind addiction</p>
+  <p>skyblock grind zone</p>
 
-  <p>
-    this is where all the block grinding, stats, and questionable life decisions go.
-  </p>
-
-  <button>download mod</button>
-  <button>texture packs</button>
-  <button onclick="switchPage('homepg')">back</button>
+  <button onclick="playClick(); switchPage('homepg')">back</button>
 </div>
 
 <!-- ================= PROJECTS ================= -->
 <div id="projects" class="page">
   <h1>projects</h1>
 
-  <p>things I made when I wasn’t distracted</p>
+  <p>unfinished ideas + experiments</p>
 
-  <ul>
-    <li>random websites</li>
-    <li>unfinished ideas</li>
-    <li>stuff that “will be updated later” (never is)</li>
-  </ul>
-
-  <button onclick="switchPage('homepg')">back</button>
+  <button onclick="playClick(); switchPage('homepg')">back</button>
 </div>
 
 <!-- ================= SETTINGS ================= -->
@@ -107,109 +84,14 @@
 
   <label>
     <input type="checkbox" id="skip">
-    skip splash screen
+    skip splash
   </label>
-
-  <p>quality of life options (very advanced system trust me)</p>
 
   <button onclick="switchPage('homepg')">back</button>
 </div>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>lyra hub</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .title {
-      font-size: 3rem;
-      color: #6d4aa6;
-      text-shadow: 0 0 20px rgba(190,120,255,0.6);
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      opacity: 0.7;
-      margin-bottom: 30px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .card {
-      width: 180px;
-      padding: 15px;
-      border-radius: 14px;
-      background: rgba(250, 245, 255, 0.7);
-      border: 1px solid rgba(180, 140, 255, 0.3);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 6px 20px rgba(170,120,255,0.2);
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 10px 30px rgba(170,120,255,0.35);
-    }
-
-    .card h3 {
-      margin: 0;
-      color: #4b2a7a;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="title">lyra hub</div>
-  <div class="subtitle">pick where you want to go</div>
-
-  <div class="menu">
-
-    <div class="card" onclick="go('main.html')">
-      <h3>profile</h3>
-      <p>about me & stats</p>
-    </div>
-
-    <div class="card" onclick="go('projects.html')">
-      <h3>projects</h3>
-      <p>stuff I made</p>
-    </div>
-
-    <div class="card" onclick="go('skyblock.html')">
-      <h3>skyblock</h3>
-      <p>game stats + flex</p>
-    </div>
-
-  </div>
-
-  <script>
-    function go(page) {
-      window.location.href = page;
-    }
-  </script>
+<!-- ambient particles -->
+<div class="bg-glow"></div>
 
 </body>
 </html>
