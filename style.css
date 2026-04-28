@@ -1,93 +1,80 @@
 body {
   margin: 0;
   font-family: "Trebuchet MS", sans-serif;
-  background: radial-gradient(circle at top, #f6f0ff, #e8ddff, #f3ecff);
-  overflow-x: hidden;
+  background: radial-gradient(circle at top, #f6f0ff, #e8ddff);
   color: #2a1f3d;
 }
 
-/* ===== PAGE SYSTEM ===== */
-.page {
-  display: none;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
+/* HUB LAYOUT */
+.hub {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  padding-top: 80px;
   text-align: center;
 }
 
-.page.active {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ===== GLASS CONTAINERS ===== */
-.splash-container,
-.panel {
-  padding: 40px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(180,140,255,0.3);
-  box-shadow: 0 10px 40px rgba(170,120,255,0.25);
-}
-
-/* ===== TEXT ===== */
+/* TITLE */
 .title {
   font-size: 3rem;
   color: #6d4aa6;
-  text-shadow: 0 0 25px rgba(180,120,255,0.6);
+  text-shadow: 0 0 25px rgba(180,120,255,0.5);
 }
 
+/* SUBTITLE */
 .subtitle {
   opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 25px;
 }
 
-/* ===== MENU CARDS ===== */
-.menu {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+/* BUTTON CARDS */
 .card {
-  width: 170px;
-  padding: 20px;
+  padding: 12px 22px;
   border-radius: 999px;
-  background: radial-gradient(circle at top, #ffffff, #e9ddff);
-  border: 1px solid rgba(180,140,255,0.4);
-  box-shadow: 0 8px 25px rgba(170,120,255,0.25);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(180,140,255,0.3);
+  box-shadow: 0 6px 20px rgba(170,120,255,0.2);
   cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.08) rotate(1deg);
-  box-shadow: 0 12px 35px rgba(170,120,255,0.4);
-}
-
-/* ===== BUTTONS ===== */
-button {
-  margin: 6px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-
-  background: linear-gradient(135deg, #c7a6ff, #7c5cff);
-  color: white;
-
-  box-shadow: 0 6px 20px rgba(160,120,255,0.3);
   transition: 0.2s;
 }
 
-button:hover {
+.card:hover {
   transform: scale(1.05);
 }
 
-/* ===== BACKGROUND GLOW ===== */
+/* CONTENT BOX */
+.panel {
+  width: 320px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(180,140,255,0.3);
+  box-shadow: 0 8px 30px rgba(170,120,255,0.2);
+}
+
+/* IMAGE BOX */
+.image-box {
+  margin-top: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+}
+
+/* BACKGROUND GLOW */
 .bg-glow {
   position: fixed;
   width: 500px;
@@ -97,30 +84,4 @@ button:hover {
   background: radial-gradient(circle, rgba(190,120,255,0.4), transparent 70%);
   filter: blur(80px);
   z-index: -1;
-}
-
-/* ===== IMAGE BOX ===== */
-.image-box {
-  margin: 20px auto;
-  width: 250px;
-  height: 250px;
-  border-radius: 20px;
-  overflow: hidden;
-
-  background: rgba(255,255,255,0.4);
-  border: 1px solid rgba(180,140,255,0.3);
-  box-shadow: 0 8px 25px rgba(170,120,255,0.25);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.section.hidden {
-  display: none;
 }
