@@ -1,121 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>lyra hub</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
 <body>
 
 <div class="bg-glow"></div>
 
-<!-- ================= SPLASH ================= -->
-<div id="startpg" class="page active">
+<!-- ================= HUB (ONLY PAGE) ================= -->
+<div class="hub">
 
-  <div class="splash-container">
+  <div class="panel">
 
     <h1 class="title">lyra hub</h1>
+
+    <!-- splash text becomes loading intro -->
     <p id="splashtext" class="subtitle">loading world...</p>
 
+    <!-- MENU ALWAYS SAME PAGE -->
     <div class="menu">
 
-      <div class="card" onclick="switchPage('hub')">
-        singleplayer
-      </div>
-
-      <div class="card" onclick="switchPage('info')">
-        profile
-      </div>
-
-      <div class="card" onclick="switchPage('minecraft')">
-        skyblock
-      </div>
+      <div class="card" onclick="go('info')">profile</div>
+      <div class="card" onclick="go('minecraft')">skyblock</div>
+      <div class="card" onclick="go('projects')">projects</div>
+      <div class="card" onclick="go('settings')">settings</div>
 
     </div>
 
   </div>
-</div>
 
-<!-- ================= HUB ================= -->
-<div id="hub" class="page">
+  <!-- ================= SECTIONS (same page, hidden blocks) ================= -->
 
-  <div class="panel">
-
-    <h1 class="title">lyra hub</h1>
-    <p class="subtitle">main menu</p>
-
-    <div class="menu">
-      <div class="card" onclick="switchPage('info')">about me</div>
-      <div class="card" onclick="switchPage('minecraft')">minecraft</div>
-      <div class="card" onclick="switchPage('projects')">projects</div>
-      <div class="card" onclick="switchPage('settingspg')">settings</div>
-    </div>
-
+  <div id="info" class="section hidden panel">
+    <h1>about me</h1>
+    <p>life is like roblox</p>
+    <button onclick="go('home')">back</button>
   </div>
 
-</div>
-
-<!-- ================= INFO ================= -->
-<div id="info" class="page">
-
-  <div class="panel">
-
-    <h1 class="title">life is like roblox</h1>
-    <p>yuh</p>
-
-    <button onclick="switchPage('hub')">back</button>
-
-  </div>
-
-</div>
-
-<!-- ================= SKYBLOCK ================= -->
-<div id="minecraft" class="page">
-
-  <div class="panel">
-
-    <h1 class="title">skyblock</h1>
+  <div id="minecraft" class="section hidden panel">
+    <h1>skyblock</h1>
     <p>prison server grind</p>
 
     <div class="image-box">
       <img src="image/prison.png" alt="prison server">
     </div>
 
-    <button onclick="switchPage('hub')">back</button>
-
+    <button onclick="go('home')">back</button>
   </div>
 
-</div>
-
-<!-- ================= PROJECTS ================= -->
-<div id="projects" class="page">
-
-  <div class="panel">
-
-    <h1 class="title">projects</h1>
-    <p>things to be done</p>
-
-    <ul>
-      <li>I forgor 💀</li>
-    </ul>
-
-    <button onclick="switchPage('hub')">back</button>
-
+  <div id="projects" class="section hidden panel">
+    <h1>projects</h1>
+    <p>I forgor 💀</p>
+    <button onclick="go('home')">back</button>
   </div>
 
-</div>
-
-<!-- ================= SETTINGS ================= -->
-<div id="settingspg" class="page">
-
-  <div class="panel">
-
-    <h1 class="title">settings</h1>
+  <div id="settings" class="section hidden panel">
+    <h1>settings</h1>
 
     <label>
       <input type="checkbox" id="skip">
-      skip splash screen
+      skip loading text
     </label>
 
-    <br><br>
-
-    <button onclick="switchPage('hub')">back</button>
-
+    <button onclick="go('home')">back</button>
   </div>
 
 </div>
 
 </body>
+</html>
