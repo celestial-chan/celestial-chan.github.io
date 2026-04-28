@@ -1,0 +1,69 @@
+body {
+  background-color: #0b0f1a;
+  color: #e6e6e6;
+  font-family: monospace;
+  max-width: 800px;
+  margin: 50px auto;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #7CFC00;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+p {
+  color: #bfbfbf;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 30px 0;
+}
+
+a {
+  color: #55aaff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.stat {
+  margin: 5px 0;
+}
+
+.common { color: #aaaaaa; }
+.uncommon { color: #55ff55; }
+.rare { color: #5555ff; }
+.epic { color: #aa00aa; }
+.legendary { color: #ffaa00; }
+
+img {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.tag {
+  font-size: 14px;
+  color: #888;
+}
+
+.box {
+  border: 1px solid #222;
+  padding: 15px;
+  border-radius: 10px;
+  background: #0f1629;
+  margin-bottom: 20px;
+}
